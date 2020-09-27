@@ -7,6 +7,7 @@ import { merge } from 'rxjs';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 import { LayoutUtilsService } from 'src/app/core/_base/crud';
 import { Observable } from 'rxjs';
+import {ModalOComponent} from './modal/modal.component';
 
 import { of as observableOf } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
@@ -49,7 +50,7 @@ export class OrdersComponent implements OnInit {
     'shipName',
     'shipPostalCode',
     'shipVia',
-    'shippedDate',
+    'shippedDate',    
     'displayedColumns'
   ];
   displayedColumns: string[] = ['id',
@@ -65,7 +66,8 @@ export class OrdersComponent implements OnInit {
     'shipPostalCode',
     'shipVia',
     'shippedDate',
-    'displayedColumns'
+    'displayedColumns',
+    'view'
   ];
 
 
@@ -90,8 +92,11 @@ export class OrdersComponent implements OnInit {
           this.isLoadingResults = true;
           const temp = this._http.getOrders(
             this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize);
-          return temp;
-        }),
+        
+            return temp;
+        }
+        
+        ),
         map((data: any) => {
           // Flip flag to show that loading has finished.
           this.isLoadingResults = false;
@@ -113,17 +118,17 @@ export class OrdersComponent implements OnInit {
       });
   }
   viewOrder(element) {
-    this._http.viewOrder(element).subscribe((d: any) => {
+   
+console.log(element);
 
-
-      /* const dialogRef = this.dialog.open(ModalComponent, { data: d });
+       const dialogRef = this.dialog.open(ModalOComponent, { data: element });
 
        dialogRef.afterClosed().subscribe(data => {
          console.log(data);
 
-       });*/
-      console.log(d);
-    });
+       });
+     
+   
   }
 
   searchResult() {

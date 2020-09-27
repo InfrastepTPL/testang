@@ -52,13 +52,14 @@ import { CustomersComponent } from './customers/customers.component';
 import { OrdersComponent } from './orders/orders.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalComponent } from './customers/modal/modal.component';
+import { ModalOComponent } from './orders/modal/modal.component';
 
 @NgModule({
   declarations: [
 		SidenavComponent,
 		CustomersComponent,
 		OrdersComponent,
-    ModalComponent],
+    ModalComponent,ModalOComponent],
   exports: [],
   imports: [
     CommonModule,
@@ -121,7 +122,7 @@ import { ModalComponent } from './customers/modal/modal.component';
   ],
   providers: [],
   entryComponents: [
-    ModalComponent
+    ModalComponent,ModalOComponent
   ],
 })
 

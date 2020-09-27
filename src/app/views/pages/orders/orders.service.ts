@@ -32,9 +32,9 @@ export class OrdersService {
 
 
 
-  viewOrder(element: any): Observable<any> {
-    return this.http.get<any>(`http://northwind.netcore.io/customers/${element.id}`);
-  }
+  /*viewOrder(element: any): Observable<any> {
+    return this.http.get<any>(`http://northwind.netcore.io/json/reply/QueryOrders/${element.id}`);
+  }*/
 
   searchResult(fieldName: string, fieldValue: string): Observable<any> {
     const url = `http://northwind.netcore.io/json/reply/QueryOrders?${fieldName}Contains=${fieldValue}&include=Total`
