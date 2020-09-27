@@ -1,0 +1,89 @@
+<div class="card card-custom bg-gray-100" [ngClass]="cssClasses">
+  <!-- Header -->
+  <!-- <div class="card-header border-0 bg-primary py-5">
+    <h3 class="card-title font-weight-bolder text-white">TAMS</h3>
+  </div> -->
+  <!-- Body -->
+  <div class="card-body p-0 position-relative overflow-hidden">
+    <!--begin::Chart-->
+    <div
+      id="kt_mixed_widget_1_chart"
+      class="card-rounded-bottom bg-primary"
+      [style.height]="'200px'"
+    >
+      <div class="d-flex flex-row">
+        <!--begin: Aside header-->
+        <div class="d-flex justify-content-start">
+          <span class="m-5">
+            <img src="./assets/media/logos/logo-letter-1.png" class="max-h-100px"/>
+          </span>
+        </div>
+        <!--end: Aside header-->
+
+        <!--begin: Aside content-->
+        <div class="d-flex justify-content-end">
+          <h3 class="font-size-h1 mt-15 custom-font text-white">
+            Tachnical Activity Management System
+          </h3>
+          <!-- <p class="font-weight-lighter text-white opacity-80">
+                The ultimate Bootstrap, Angular 8, React & VueJS admin theme framework for next generation web
+                apps.
+              </p> -->
+        </div>
+        <!--end: Aside content-->
+      </div>
+    </div>
+    <!--end::Chart-->
+
+    <!--begin::Stats-->
+    <div class="card-spacer mt-n25">
+      <!--begin::Row-->
+      <div class="row m-0">
+        <a href="#/pendingactivities" class="col bg-light-warning px-6 py-8 rounded-xl mr-7 mb-7">
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/General/Clipboard.svg'"
+            class="svg-icon svg-icon-3x svg-icon-warning d-block my-2"
+          ></span>
+          <span class="text-warning font-weight-bold font-size-h6">
+            Pending Activities
+          </span>
+        </a>
+        <a href="#/completejob" class="col bg-light-success px-6 py-8 rounded-xl mb-7">
+          <span
+            [inlineSVG]="
+              './assets/media/svg/icons/Communication/Clipboard-check.svg'
+            "
+            class="svg-icon svg-icon-3x svg-icon-success d-block my-2"
+          ></span>
+          <span class="text-success font-weight-bold font-size-h6 mt-2">
+            Complete Jobs
+          </span>
+        </a>
+      </div>
+      <!--end::Row-->
+      <!--begin::Row-->
+      <div class="row m-0">
+        <a href="#/reports" class="col bg-light-primary px-6 py-8 rounded-xl mr-7">
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/Files/Selected-file.svg'"
+            class="svg-icon svg-icon-3x svg-icon-primary d-block my-2"
+          ></span>
+          <span  class="text-primary font-weight-bold font-size-h6 mt-2">
+            Reports
+          </span>
+        </a>
+        <a href="#/settings" class="col bg-light-danger px-6 py-8 rounded-xl">
+          <span
+            [inlineSVG]="'./assets/media/svg/icons/General/Settings-2.svg'"
+            class="svg-icon svg-icon-3x svg-icon-danger d-block my-2"
+          ></span>
+          <span class="text-danger font-weight-bold font-size-h6 mt-2">
+            Settings
+          </span>
+        </a>
+      </div>
+      <!--end::Row-->
+    </div>
+    <!--end::Stats-->
+  </div>
+</div>

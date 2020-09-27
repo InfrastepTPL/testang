@@ -1,0 +1,127 @@
+<div class="col-xxl-12">
+	<kt-portlet>
+		<kt-portlet-body>
+			<!-- start::FILTERS -->
+			<div class="form-filtration">
+				<div class="row align-items-center">
+					<div class="col-md-2">
+						<mat-form-field>
+							<mat-select [(ngModel)]="selected">
+								<mat-option *ngFor="let customer of CustomerPredicate" [value]="customer">{{ customer }}
+								</mat-option>
+							</mat-select>
+
+							<mat-hint align="start">
+								<strong></strong>
+							</mat-hint>
+						</mat-form-field>
+					</div>
+					<div class="col-md-2 kt-margin-bottom-10-mobile">
+						<mat-form-field class="mat-form-field-fluid">
+							<input matInput placeholder="" #searchInput [(ngModel)]="searchText" />
+							<mat-hint align="start">
+								<strong></strong>
+							</mat-hint>
+						</mat-form-field>
+					</div>
+					<div class="col-md-2">
+						<button (click)=searchResult()>Search</button>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<!-- end::FILTERS -->
+			<div class="mat-table-wrapper">
+				<div class="mat-elevation-z8">
+					<mat-table class="lmat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
+
+						<ng-container matColumnDef="id">
+							<mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+							<mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+						</ng-container>
+						<!-- Name Column -->
+						<ng-container matColumnDef="companyName">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </mat-header-cell>
+							<mat-cell *matCellDef="let element"> {{element.companyName}} </mat-cell>
+						</ng-container>
+
+						<!-- Weight Column -->
+						<ng-container matColumnDef="contactName">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Contact Name </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.contactName}}
+							</mat-cell>
+						</ng-container>
+						<ng-container matColumnDef="contactTitle">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Contact Title </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.contactTitle}}
+							</mat-cell>
+						</ng-container>
+
+
+						<ng-container matColumnDef="address">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.address}}
+							</mat-cell>
+						</ng-container>
+
+
+						<ng-container matColumnDef="city">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.city}}
+							</mat-cell>
+						</ng-container>
+
+
+						<ng-container matColumnDef="postalCode">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Postal Code </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.postalCode}}
+							</mat-cell>
+						</ng-container>
+
+						<ng-container matColumnDef="country">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.country}}
+							</mat-cell>
+						</ng-container>
+
+						<ng-container matColumnDef="phone">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.phone}}
+							</mat-cell>
+						</ng-container>
+
+						<ng-container matColumnDef="fax">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Fax </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.fax}}
+							</mat-cell>
+						</ng-container>
+						<ng-container matColumnDef="view">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								<button (click)="viewOrder(element)">View</button>
+							</mat-cell>
+						</ng-container>
+
+						<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+						<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+					</mat-table>
+
+
+				</div>
+			</div>
+			<div class="mat-table-bottom">
+				<mat-paginator [length]="resultsLength" [pageSize]="5" [pageSizeOptions]="[3, 5, 10]"
+					[showFirstLastButtons]="true">
+				</mat-paginator>
+			</div>
+		</kt-portlet-body>
+	</kt-portlet>
+</div>

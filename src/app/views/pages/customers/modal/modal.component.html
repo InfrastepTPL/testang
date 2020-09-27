@@ -1,0 +1,138 @@
+<div class="card card-custom scroll">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Customers Detail</h3>
+    </div>
+  </div>
+  <form class="form">
+    <div class="card-body ">
+
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>Id</td>
+            <td>{{customer.id}}</td>
+          </tr>
+          <tr>
+            <td>Company Name</td>
+            <td>{{customer.companyName}}</td>
+          </tr>
+          <tr>
+            <td>Contact Name</td>
+            <td>{{customer.contactName}}</td>
+          </tr>
+          <tr>
+            <td>Contact Title</td>
+            <td>{{customer.contactTitle}}</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>{{customer.address}}</td>
+          </tr>
+          <tr>
+            <td>City</td>
+            <td>{{customer.city}}</td>
+          </tr>
+          <tr>
+            <td>Postal Code</td>
+            <td>{{customer.postalCode}}</td>
+          </tr>
+          <tr>
+            <td>Country</td>
+            <td>{{customer.country}}</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>{{customer.phone}}</td>
+          </tr>
+          <tr>
+            <td>Fax</td>
+            <td>{{customer.fax}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <hr />
+    <div class="card-body ">
+      <h1>Order Details</h1>
+
+
+      <!-- <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">EmployeeId</th>
+            <th scope="col">ShipPostal Code</th>
+            <th scope="col">Ship Via</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let ord of customerOrders">
+          <tr>
+            <th >{{ord.order.id}}</th>
+            <td>{{ord.order.employeeId}}</td>
+            <td>{{ord.order.shipPostalCode}}</td>
+            <td>{{ord.order.shipVia}}</td>
+          </tr>
+        </tbody>
+      </table> -->
+
+
+
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let ord of customerOrders">
+          <mat-expansion-panel-header>
+            <div class="container">
+              <div class="row">
+                <div class="col">Id: {{ord.order.id}} </div>
+                <div class="col">Employee Id: {{ord.order.employeeId}}</div>
+                <div class="col">Ship Via: {{ord.order.shipVia}}</div>
+              </div>
+            </div>
+          </mat-expansion-panel-header>
+          
+          <table  class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Order Id</th>
+                <th scope="col">Product Id</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">discount</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let odls  of ord.orderDetails">
+              <tr>
+                <td >{{odls.orderId}}</td>
+              
+                <td >{{odls.productId}}</td>
+             
+                <td >{{odls.quantity}}</td>
+             
+                <td >{{odls.unitPrice}}</td>
+            
+                <td >{{odls.discount}}</td>
+                <th >{{odls.unitPrice * odls.quantity - odls.discount}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+
+
+
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-between">
+        <div class="mr-2"></div>
+        <div>
+          <button type="button" mat-raised-button [mat-dialog-close]="data.animal" cdkFocusInitial matTooltip="Close">
+            Close
+          </button>&nbsp;
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

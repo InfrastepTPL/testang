@@ -1,0 +1,165 @@
+<div class="col-xxl-12">
+	<kt-portlet>
+		<kt-portlet-body>
+			<!-- start::FILTERS -->
+			<div class="form-filtration">
+				<div class="row align-items-center">
+					<div class="col-md-2">
+						<mat-form-field>
+							<mat-select [(ngModel)]="selected">
+								<mat-option *ngFor="let order of OrderPredicate" [value]="order"
+								>{{ order }}</mat-option>
+							</mat-select>
+							<mat-hint align="start">
+								<strong></strong>
+							</mat-hint>
+						</mat-form-field>
+					</div>
+					<div class="col-md-2 kt-margin-bottom-10-mobile">
+						<mat-form-field class="mat-form-field-fluid">
+							<input matInput placeholder="" #searchInput [(ngModel)]="searchText"
+								 />
+							<mat-hint align="start">
+								<strong></strong>
+							</mat-hint>
+						</mat-form-field>
+					</div>
+					<div class="col-md-2">
+
+						<button (click)=searchResult()>Search</button>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<!-- end::FILTERS -->
+			<div class="mat-table-wrapper">
+				<div class="mat-elevation-z8">
+					<mat-table class="lmat-elevation-z8" mat-table [dataSource]="dataSource" matSort>
+
+
+
+						<ng-container matColumnDef="id">
+							<mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+							<mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+						</ng-container>
+						<!-- Name Column -->
+						<ng-container matColumnDef="customerId">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Customer Id </mat-header-cell>
+							<mat-cell *matCellDef="let element"> {{element.customerId}} </mat-cell>
+						</ng-container>
+
+						<!-- Weight Column -->
+						<ng-container matColumnDef="employeeId">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Employee Id </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.employeeId}}
+							</mat-cell>
+						</ng-container>
+
+
+						<ng-container matColumnDef="freight">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Freight </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.freight}}
+							</mat-cell>
+						</ng-container>
+
+
+						<ng-container matColumnDef="orderDate">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Order Date </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.orderDate}}
+							</mat-cell>
+						</ng-container>
+
+
+
+
+
+						<ng-container matColumnDef="requiredDate">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Required Date </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.requiredDate}}
+							</mat-cell>
+						</ng-container>
+
+
+						<ng-container matColumnDef="shipAddress">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Ship Address </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.shipAddress}}
+							</mat-cell>
+						</ng-container>
+
+						<ng-container matColumnDef="shipCity">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Ship City </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.shipCity}}
+							</mat-cell>
+						</ng-container>
+
+
+						<ng-container matColumnDef="shipCountry">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Ship Country </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.shipCountry}}
+							</mat-cell>
+						</ng-container>
+
+
+						<ng-container matColumnDef="shipName">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Ship Name </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.shipName}}
+							</mat-cell>
+						</ng-container>
+
+						<ng-container matColumnDef="shipPostalCode">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Ship PostalCode </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.shipPostalCode}}
+							</mat-cell>
+						</ng-container>
+						<ng-container matColumnDef="shipVia">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Ship Via </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.shipVia}}
+							</mat-cell>
+						</ng-container>
+						<ng-container matColumnDef="shippedDate">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Shipped Date</mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.shippedDate}}
+							</mat-cell>
+						</ng-container>
+
+						<ng-container matColumnDef="displayedColumns">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> Displayed Columns </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								{{element.displayedColumns}}
+							</mat-cell>
+						</ng-container>
+
+						<!-- <ng-container matColumnDef="view">
+							<mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+							<mat-cell *matCellDef="let element">
+								<button (click)="viewOrder(element)">View</button>
+							</mat-cell>
+						</ng-container> -->
+
+						<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+						<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+					</mat-table>
+
+
+				</div>
+			</div>
+			<div class="mat-table-bottom">
+
+				<mat-paginator [length]="resultsLength" [pageSize]="5" [pageSizeOptions]="[3, 5, 10]"
+					[showFirstLastButtons]="true">
+				</mat-paginator>
+			</div>
+		</kt-portlet-body>
+	</kt-portlet>
+</div>

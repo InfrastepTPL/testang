@@ -1,0 +1,80 @@
+<ng-container *ngIf="user$ | async as _user">
+	<!-- begin::Offcanvas Toolbar Quick Actions -->
+	<div ktOffcanvas [options]="offcanvasOptions" id="kt_quick_user" class="offcanvas offcanvas-right p-10"
+		[ngStyle]="{ overflow: 'hidden' }">
+		<div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
+			<!-- <h3 class="font-weight-bold m-0">
+				User Profile
+				<small class="text-muted font-size-sm ml-2">12 messages</small>
+			</h3> -->
+			<a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
+				<i class="ki ki-close icon-xs text-muted"></i>
+			</a>
+		</div>
+
+		<div class="offcanvas-content" [ngStyle]="{ 'height': '100vh', 'overflow': 'hidden' }">
+			<div [perfectScrollbar]="{ wheelPropagation: false }" class="scroll"
+				[ngStyle]="{ 'height': '600px', 'position': 'relative' }">
+				<div class="d-flex align-items-center mt-5">
+					<div class="symbol symbol-100 mr-5">
+						<img class="symbol-label" src="{{_user.pic}}" />
+						<i class="symbol-badge bg-success"></i>
+					</div>
+					<div class="d-flex flex-column">
+						<span class="font-weight-bold text-break font-size-h5 text-wrap text-dark-75 text-hover-primary" >
+              {{_user.fullname}}
+						</span>
+						<div class="text-muted mt-1"></div>
+						<div class="navi mt-2">
+							<a href="#" class="navi-item">
+								<span class="navi-link p-0 pb-2">
+									<span class="navi-icon mr-1">
+										<span class="svg-icon svg-icon-lg svg-icon-primary"
+											[inlineSVG]="'./assets/media/svg/icons/Communication/Mail-notification.svg'"></span>
+									</span>
+									<span class="navi-text text-muted text-hover-primary">
+                    {{_user.email}}
+									</span>
+								</span>
+							</a>
+						</div>
+						<a (click)="logout()" class="btn btn-light-primary btn-bold">
+							Sign Out
+						</a>
+					</div>
+				</div>
+
+				<div class="separator separator-dashed mt-8 mb-5"></div>
+
+				<div class="navi navi-spacer-x-0 p-0">
+					<a href="#" class="navi-item">
+						<div class="navi-link">
+							<div class="symbol symbol-40 bg-light mr-3">
+								<div class="symbol-label">
+									<span class="svg-icon svg-icon-md  svg-icon-success">
+										<span [inlineSVG]="'./assets/media/svg/icons/General/Notification2.svg'"></span>
+									</span>
+								</div>
+							</div>
+							<div class="navi-text">
+								<div class="font-weight-bold">My Profile</div>
+								<div class="text-muted">
+									Account settings and more &nbsp;
+									<!-- <span class="label label-light-danger label-inline font-weight-bold">
+										update
+									</span> -->
+								</div>
+							</div>
+						</div>
+					</a>
+
+				</div>
+
+				<div class="separator separator-dashed my-7"></div>
+
+
+			</div>
+		</div>
+	</div>
+	<!-- end::Offcanvas Toolbar Quick User Actions -->
+</ng-container>
